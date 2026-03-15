@@ -51,14 +51,16 @@
             },
             {
                 "id": "ToDoForm",
-                "title": { "default": "ToDo"
+                "title": {
+                    "default": "ToDo"
                 },
                 "url": "/todo",
                 "formFieldList": [
                     {
                         "id": "title",
                         "type": "text",
-                        "name": { "default": "Titel"
+                        "name": {
+                            "default": "Titel"
                         },
                         "required": true,
                         "width": 2
@@ -66,7 +68,49 @@
                     {
                         "id": "description",
                         "type": "text",
-                        "name": { "default": "Text"
+                        "name": {
+                            "default": "Text"
+                        },
+                        "newRow": true,
+                        "maxLength": 4000,
+                        "height": 4,
+                        "width": 2
+                    },
+                    {
+                        "type": "deleteButton",
+                        "name": "Delete"
+                    },
+                    {
+                        "type": "cancelButton",
+                        "name": "Cancel"
+                    },
+                    {
+                        "type": "okButton",
+                        "name": "Ok"
+                    }
+                ]
+            },
+            {
+                "id": "CourseForm",
+                "title": {
+                    "default": "Course"
+                },
+                "url": "/course",
+                "formFieldList": [
+                    {
+                        "id": "title",
+                        "type": "text",
+                        "name": {
+                            "default": "Titel"
+                        },
+                        "required": true,
+                        "width": 2
+                    },
+                    {
+                        "id": "description",
+                        "type": "text",
+                        "name": {
+                            "default": "Beschreibung"
                         },
                         "newRow": true,
                         "maxLength": 4000,
@@ -95,18 +139,79 @@
                 "elementList": [
                     {
                         "type": "pageLabel",
-                        "value": "<h4>Willkommen bei DevOps</h4>",
+                        "value": "<h3>DevOps Workspace</h3>",
+                        "newRow": true
+                    },
+                    {
+                        "type": "pageLabel",
+                        "value": "Verwalte Aufgaben und Kurse in einer kompakten Demo-App.",
+                        "newRow": true
+                    },
+                    {
+                        "type": "pageLabel",
+                        "value": "<b>Bereiche</b>",
                         "newRow": true
                     },
                     {
                         "type": "button",
-                        "name": { "default": "ToDo-List"
+                        "name": {
+                            "default": "ToDo-List"
                         },
-                        "icon": "fa-file-alt",
-                        "color": "wet-asphalt",
+                        "icon": "fa-tasks",
+                        "color": "midnight-blue",
                         "page": "toDoPage",
                         "width": 2,
                         "newRow": true
+                    },
+                    {
+                        "type": "button",
+                        "name": {
+                            "default": "Courses"
+                        },
+                        "icon": "fa-book",
+                        "color": "belize-hole",
+                        "page": "coursePage",
+                        "width": 2
+                    },
+                    {
+                        "type": "pageLabel",
+                        "value": "<b>Schnellzugriff</b>",
+                        "newRow": true
+                    },
+                    {
+                        "type": "button",
+                        "name": {
+                            "default": "Neue Aufgabe"
+                        },
+                        "icon": "fa-plus-circle",
+                        "color": "emerald",
+                        "width": 2,
+                        "form": {
+                            "form": "ToDoForm"
+                        },
+                        "newRow": true
+                    },
+                    {
+                        "type": "button",
+                        "name": {
+                            "default": "Neuer Course"
+                        },
+                        "icon": "fa-graduation-cap",
+                        "color": "amethyst",
+                        "width": 2,
+                        "form": {
+                            "form": "CourseForm"
+                        }
+                    },
+                    {
+                        "type": "button",
+                        "name": {
+                            "default": "Motivation"
+                        },
+                        "icon": "fa-lightbulb",
+                        "color": "sun-flower",
+                        "page": "quotePage",
+                        "width": 2
                     }
                 ]
             },
@@ -117,12 +222,23 @@
                         "type": "backbutton"
                     },
                     {
+                        "type": "pageLabel",
+                        "value": "<h4>ToDo Uebersicht</h4>"
+                    },
+                    {
+                        "type": "pageLabel",
+                        "value": "Hier verwaltest du offene Aufgaben.",
+                        "newRow": true
+                    },
+                    {
                         "type": "newButton",
-                        "name": { "default": "Neues ToDo"
+                        "name": {
+                            "default": "Neues ToDo"
                         },
-                        "icon": "fa-user",
-                        "color": "green",
+                        "icon": "fa-plus",
+                        "color": "emerald",
                         "width": 2,
+                        "newRow": true,
                         "form": {
                             "form": "ToDoForm"
                         }
@@ -130,13 +246,80 @@
                     {
                         "type": "list",
                         "name": "ToDo",
-                        "icon": "fa-user",
-                        "color": "wet-asphalt",
+                        "icon": "fa-check-square",
+                        "color": "midnight-blue",
                         "search": true,
                         "url": "/todo",
                         "form": {
                             "form": "ToDoForm"
                         }
+                    }
+                ]
+            },
+            {
+                "id": "coursePage",
+                "elementList": [
+                    {
+                        "type": "backbutton"
+                    },
+                    {
+                        "type": "pageLabel",
+                        "value": "<h4>Course Uebersicht</h4>"
+                    },
+                    {
+                        "type": "pageLabel",
+                        "value": "Hier verwaltest du Kurse und Beschreibungen.",
+                        "newRow": true
+                    },
+                    {
+                        "type": "newButton",
+                        "name": {
+                            "default": "Neuer Course"
+                        },
+                        "icon": "fa-plus",
+                        "color": "amethyst",
+                        "width": 2,
+                        "newRow": true,
+                        "form": {
+                            "form": "CourseForm"
+                        }
+                    },
+                    {
+                        "type": "list",
+                        "name": "Courses",
+                        "icon": "fa-book-open",
+                        "color": "belize-hole",
+                        "search": true,
+                        "url": "/course",
+                        "form": {
+                            "form": "CourseForm"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "quotePage",
+                "elementList": [
+                    {
+                        "type": "backbutton"
+                    },
+                    {
+                        "type": "pageLabel",
+                        "value": "<h4>Motivation des Tages</h4>",
+                        "newRow": true
+                    },
+                    {
+                        "type": "pageLabel",
+                        "value": "Klicke auf die Kachel, um einen zufälligen Spruch zu laden.",
+                        "newRow": true
+                    },
+                    {
+                        "type": "list",
+                        "name": "Motivation",
+                        "icon": "fa-quote-left",
+                        "color": "sun-flower",
+                        "width": 10,
+                        "url": "/quote"
                     }
                 ]
             }
