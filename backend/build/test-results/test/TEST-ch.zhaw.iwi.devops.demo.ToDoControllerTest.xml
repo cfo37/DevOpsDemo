@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ch.zhaw.iwi.devops.demo.ToDoControllerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-04-11T15:49:35.111Z" hostname="LAPTOP-KAVOI7N3" time="0.305">
+  <properties/>
+  <testcase name="testPing()" classname="ch.zhaw.iwi.devops.demo.ToDoControllerTest" time="0.001"/>
+  <testcase name="testTest()" classname="ch.zhaw.iwi.devops.demo.ToDoControllerTest" time="0.001"/>
+  <testcase name="testCreate()" classname="ch.zhaw.iwi.devops.demo.ToDoControllerTest" time="0.001"/>
+  <testcase name="testDelete()" classname="ch.zhaw.iwi.devops.demo.ToDoControllerTest" time="0.302"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
