@@ -1,0 +1,142 @@
+{
+  "id": "ea12557f-2f9b-4ccb-90be-cea34998f63d",
+  "version": "3.0",
+  "name": "DevOpsDemoTest",
+  "url": "http://www.google.com",
+  "urls": [
+    "http://www.google.com"
+  ],
+  "plugins": [],
+  "suites": [
+    {
+      "id": "cbfc46f8-9ce5-4271-8e9f-d92a6846129d",
+      "name": "New Suite",
+      "parallel": false,
+      "persistSession": false,
+      "tests": [],
+      "timeout": 30000
+    }
+  ],
+  "tests": [
+    {
+      "id": "f4e326ce-d981-4b25-a366-7e564ffafae7",
+      "name": "DevOpsDemoTest",
+      "commands": [
+        {
+          "id": "31ca6b78-89d0-4e43-b0fd-1e75f9b046b3",
+          "command": "open",
+          "target": "http://localhost:3000/",
+          "value": ""
+        },
+        {
+          "command": "click",
+          "target": "css=.tile-emerald",
+          "value": "",
+          "insertBeforeLastCommand": false,
+          "frameLocation": "root",
+          "winHandleId": "root",
+          "id": "4d444f5b-e245-4440-8c82-f8c276728b91",
+          "targets": [
+            [
+              "css=.tile-emerald",
+              "css:finder"
+            ],
+            [
+              "xpath=(//path-framework[@id='app']/path-application/div/div/div/div[6]/div/span/span/span/path-button-group/span/div/span/span/path-button/a/div)[1]",
+              "xpath:idRelative"
+            ]
+          ]
+        },
+        {
+          "command": "type",
+          "target": "xpath=//input[@type='text']",
+          "value": "Test1",
+          "insertBeforeLastCommand": false,
+          "frameLocation": "root",
+          "winHandleId": "root",
+          "id": "0274826c-5539-4743-b750-0357e6b700e3",
+          "targets": [
+            [
+              "css=.ng-dirty",
+              "css:finder"
+            ],
+            [
+              "xpath=(//input[@type='text'])[1]",
+              "xpath:attributes"
+            ],
+            [
+              "xpath=(//div[@id='myModal']/div/path-form/div/form/div[2]/div/span/span/path-textfield/span/div/input)[1]",
+              "xpath:idRelative"
+            ]
+          ]
+        },
+        {
+          "command": "click",
+          "target": "css=.btn:nth-child(3) > .path-default-font",
+          "value": "",
+          "insertBeforeLastCommand": false,
+          "frameLocation": "root",
+          "winHandleId": "root",
+          "id": "17d35694-f095-4e56-891a-6ad3a7604e08",
+          "targets": [
+            [
+              "css=.btn:nth-child(3) > .path-default-font",
+              "css:finder"
+            ],
+            [
+              "xpath=(//div[@id='myModal']/div/path-form/div/form/div[3]/button[3]/span)[1]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//span[contains(.,'Ok')]",
+              "xpath:innerText"
+            ]
+          ]
+        },
+        {
+          "command": "click",
+          "target": "css=.tile-midnight-blue",
+          "value": "",
+          "insertBeforeLastCommand": false,
+          "frameLocation": "root",
+          "winHandleId": "root",
+          "id": "ee8f16cf-018f-405d-979c-824d2dcc90f6",
+          "targets": [
+            [
+              "css=.tile-midnight-blue",
+              "css:finder"
+            ],
+            [
+              "xpath=(//path-framework[@id='app']/path-application/div/div/div/div[4]/div/span/span/span/path-button-group/span/div/span/span/path-button/a/div)[1]",
+              "xpath:idRelative"
+            ]
+          ]
+        },
+        {
+          "command": "runScript",
+          "target": "window.scrollTo(0,119)",
+          "value": "",
+          "insertBeforeLastCommand": false,
+          "frameLocation": "root",
+          "winHandleId": "root",
+          "id": "5036046b-5806-40d5-81af-d7415ef284b9",
+          "targets": [
+            [
+              "window.scrollTo(0,119)",
+              ""
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "snapshot": {
+    "dependencies": {},
+    "tests": [],
+    "jest": {
+      "extraGlobals": []
+    }
+  },
+  "timeout": 5000,
+  "delay": 100
+}

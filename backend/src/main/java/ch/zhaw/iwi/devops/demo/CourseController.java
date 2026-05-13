@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
@@ -21,20 +22,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CourseController {
 
-    private Map<Integer, Course> Courses = new HashMap<Integer, Course>();
+    private static final Logger logger = Logger.getLogger(CourseController.class.getName());
+
+    private Map<Integer, Course> courses = new HashMap<>();
 
     @EventListener(ApplicationReadyEvent.class)
     public void init() {
-        this.Courses.put(1, new Course(1, "DevOps", "Einführung in DevOps"));
-        this.Courses.put(2, new Course(2, "Cloud", "Grundlagen Cloud Computing"));
-        this.Courses.put(3, new Course(3, "Testing", "Tests und Qualitätssicherung"));
-        System.out.println("Init Course Data");
+        this.courses.put(1, new Course(1, "DevOps", "Einführung in DevOps"));
+        this.courses.put(2, new Course(2, "Cloud", "Grundlagen Cloud Computing"));
+        this.courses.put(3, new Course(3, "Testing", "Tests und Qualitätssicherung"));
+        logger.info("Init Course Data");
     }
 
     @GetMapping("/services/course")
     public List<PathListEntry<Integer>> course() {
         var result = new ArrayList<PathListEntry<Integer>>();
-        for (var course : this.Courses.values()) {
+        for (var course : this.courses.values()) {
             var entry = new PathListEntry<Integer>();
             entry.setKey(course.getId(), "courseKey");
             entry.setName(course.getTitle());
@@ -47,24 +50,24 @@ public class CourseController {
 
     @GetMapping("/services/course/{key}")
     public Course getCourse(@PathVariable("key") Integer key) {
-        return this.Courses.get(key);
+        return this.courses.get(key);
     }
 
     @PostMapping("/services/course")
     public void createCourse(@RequestBody Course course) {
-        var newId = this.Courses.keySet().stream().max(Comparator.naturalOrder()).orElse(0) + 1;
+        var newId = this.courses.keySet().stream().max(Comparator.naturalOrder()).orElse(0) + 1;
         course.setId(newId);
-        this.Courses.put(newId, course);
+        this.courses.put(newId, course);
     }
 
     @PutMapping("/services/course/{key}")
     public void updateCourse(@PathVariable("key") Integer key, @RequestBody Course course) {
         course.setId(key);
-        this.Courses.put(key, course);
+        this.courses.put(key, course);
     }
 
     @DeleteMapping("/services/course/{key}")
     public Course deleteCourse(@PathVariable("key") Integer key) {
-        return this.Courses.remove(key);
+        return this.courses.remove(key);
     }
 }
